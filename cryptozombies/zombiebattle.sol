@@ -13,7 +13,7 @@ contract ZombieBattle is ZombieHelper {
     // 内部随机数生成函数
     function randMod(uint _modulus) internal returns(uint) {
         // 增加随机数种子
-        randNonce++;
+        randNonce = randNonce.add(1);
         // 生成随机数并返回对_modulus取模的结果
         return uint(keccak256(now, msg.sender, randNonce)) % _modulus;
     }
@@ -30,14 +30,14 @@ contract ZombieBattle is ZombieHelper {
         // 判断战斗结果并更新状态
         if (rand <= attackVictoryProbability) {
             // 我方僵尸胜利
-            myZombie.winCount++;
-            myZombie.level++;
-            enemyZombie.lossCount++;
+            myZombie.winCount = myZombie.winCount.add(1);
+            myZombie.level = myZombie.level.add(1);
+            enemyZombie.lossCount = enemyZombie.lossCount.add(1);
             feedAndMultiply(_zombieId, enemyZombie.dna, "zombie");
         } else {
             // 我方僵尸失败
-            myZombie.lossCount++;
-            enemyZombie.winCount++;
+            myZombie.lossCount = myZombie.lossCount.add(1);
+            enemyZombie.winCount = enemyZombie.winCount.add(1);
             // 触发冷却时间
             _triggerCooldown(myZombie);
         }

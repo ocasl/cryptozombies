@@ -3,7 +3,7 @@
 # Solidity Smart Contract Development with Hardhat
 
 ## General Rules
-
+- **Clean Comments Rule**:Every line of code must have a concise comment explaining its purpose. Comments should be clear, relevant, and placed directly above or beside the corresponding line. Prioritize readability and avoid redundant explanations.
 - **Cut the fluff**: Code or detailed explanations only.
 - **Keep it casual and brief**: Avoid unnecessary verbosity.
 - **Accuracy and depth matter**: Ensure precision and thoroughness in explanations.
